@@ -1,0 +1,50 @@
+:root {
+  --width: 4rem;
+  --height: 4rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#cursor-trace,
+.trail-particle {
+  position: absolute;
+  width: var(--width);
+  height: var(--width);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#cursor-trace {
+  background-color: rgba(255, 242, 0);
+}
+
+.trail-particle {
+  background-color: rgba(255, 242, 0, 0.5);
+  animation: trailAnimation 1s ease-out forwards;
+}
+
+@keyframes trailAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
